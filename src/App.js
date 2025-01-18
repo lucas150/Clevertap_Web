@@ -143,12 +143,80 @@ function App() {
       }
     }
   }, [eventTriggered]);
+  // popup
+
+  const [BoxPopupMessage, setBoxPopupMessage] = useState("");
+  const boxpopup = () => {
+    if (window.clevertap) {
+      window.clevertap.event.push("BoxPopup", {
+        content: "Box Popup is triggered",
+      });
+      setBoxPopupMessage("Box Popup Triggered");
+    } else {
+      console.error("Clevertap sdk not available");
+    }
+  };
+
+  const [BannerPopupMessage, setBannerPopupMessage] = useState("");
+  const bannerPopup = () => {
+    if (window.clevertap) {
+      window.clevertap.event.push("Banner Popup", {
+        content: "Banner is triggered",
+      });
+      setBannerPopupMessage("Banner Popup");
+    } else {
+      console.error("sdk not defined");
+    }
+  };
+
+  const [InterstitialPopupMessage, setInterstitialPopupMessage] = useState("");
+  const InterstitialPopup = () => {
+    if (window.clevertap) {
+      window.clevertap.event.push("Interstitial Popup", {
+        content: "Interstitial is triggered",
+      });
+      setInterstitialPopupMessage("Interstitial Popup");
+    } else {
+      console.error("sdk not defined");
+    }
+  };
+
+  const [WebExitIntent, setWebExitIntent] = useState("");
+  const webexitintent = () => {
+    if (window.clevertap) {
+      window.clevertap.event.push("Web Exit Intent", {
+        content: "Web Exit Intent is triggered",
+      });
+      setWebExitIntent("Web Exit Intent Triggered");
+    } else {
+      console.error("sdk not defined");
+    }
+  };
+  // in order to load popups more than 2 times
+  // if (window.clevertap) {
+  //   window.clevertap.setConfig({
+  //     dismissSpamControl: true,
+  //   });
+  //   console.log("dismissSpamControl flag is set false");
+  // }
 
   return (
     <div className="App">
       <h1>My React App</h1>
       <button onClick={handleNativeDisplay}>Trigger Native Display</button>
-      <div id="HI"></div> {/* Element to display the event result */}
+      {/* Box */}
+      <button onClick={boxpopup}>Popup</button>
+      {BoxPopupMessage && <p>{BoxPopupMessage}</p>}
+      {/* banner */}
+      <button onClick={bannerPopup}>Banner</button>
+      {BannerPopupMessage && <p>{BannerPopupMessage}</p>}
+      {/* Interstitial */}
+      <button onClick={InterstitialPopup}>Interstitial</button>
+      {InterstitialPopupMessage && <p>{InterstitialPopupMessage}</p>}
+      <button onClick={webexitintent}>Web Exit Intent</button>
+      {WebExitIntent && <p>{WebExitIntent}</p>} 
+
+      <div id="HI"></div>
     </div>
   );
 }

@@ -12,6 +12,7 @@
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
+    <!-- id credentials -->
     <script type="text/javascript">
       var clevertap = {
         event: [],
@@ -39,6 +40,7 @@
       })();
     </script>
 
+    <!-- identity  -->
     <script type="text/javascript">
       clevertap.onUserLogin.push({
         Site: {
@@ -63,6 +65,7 @@
       });
     </script>
 
+    <!-- //serviceWorker -->
     <script type="text/javascript">
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker
@@ -73,6 +76,47 @@
           .catch(function (error) {
             console.error("Service Worker Registration failed:", error);
           });
+      }
+    </script>
+    <!-- Web Pop ups -->
+    <!-- box-->
+    <div class="btn">CLOSE</div>
+    <script>
+      var btn = document.querySelector(".btn");
+      var wrapper = window.parent.document.getElementById("wizParDiv0");
+      btn.addEventListener("click", closePopUp);
+      function closePopUp() {
+        setTimeout(() => {
+          wrapper.remove();
+        }, 0);
+      }
+    </script>
+    <!--banner-->
+    <div class="btn">CLOSE</div>
+
+    <script>
+      var btn = document.querySelector(".btn");
+      var wrapper = window.parent.document.getElementById("wizParDiv2");
+      btn.addEventListener("click", closePopUp);
+      function closePopUp() {
+        setTimeout(() => {
+          wrapper.remove();
+        }, 0);
+      }
+    </script>
+
+    <!-- interstellar-->
+    <div class="btn">CLOSE</div>
+    <script>
+      var btn = document.querySelector(".btn");
+      var overlay = window.parent.document.getElementById("intentOpacityDiv");
+      var wrapper = window.parent.document.getElementById("intentPreview");
+      btn.addEventListener("click", closePopUp);
+      function closePopUp() {
+        setTimeout(() => {
+          overlay.remove();
+          wrapper.remove();
+        }, 0);
       }
     </script>
 
