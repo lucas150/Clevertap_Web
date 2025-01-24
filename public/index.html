@@ -24,7 +24,7 @@
       };
 
       // replace with the CLEVERTAP_ACCOUNT_ID with the actual ACCOUNT ID value from your Dashboard -> Settings page
-      clevertap.account.push({ id: "TEST-4R8-7ZK-6K7Z" }, "in1");
+      clevertap.account.push({ id: "TEST-4R8-7ZK-6K7Z" });
       clevertap.privacy.push({ optOut: false }); //set the flag to true, if the user of the device opts out of sharing their data
       clevertap.privacy.push({ useIP: false }); //set the flag to true, if the user agrees to share their IP data
       (function () {
@@ -44,17 +44,17 @@
     <script type="text/javascript">
       clevertap.onUserLogin.push({
         Site: {
-          Name: "Jack Montana", // String
-          Identity: 61026032, // String or number
-          Email: "henil@clevertap.com", // Email address of the user
-          Phone: "+919769660756", // Phone (with the country code)
-          Gender: "M", // Can be either M or F
-          DOB: new Date(), // Date of Birth. Date object
+          Name: "Jontana", 
+          Identity: 30,
+          Email: "hl@clevertap.com", 
+          Phone: "+9197756",   
+          Gender: "M", 
+          DOB: new Date(),
           // optional fields. controls whether the user will be sent email, push etc.
-          "MSG-email": true, // Enable email notifications
-          "MSG-push": true, // Enable push notifications
-          "MSG-sms": true, // Enable sms notifications
-          "MSG-whatsapp": true, // Enable WhatsApp notifications
+          "MSG-email": true, 
+          "MSG-push": true, 
+          "MSG-sms": true, 
+          "MSG-whatsapp": true, 
         },
       });
       clevertap.profile.push({
@@ -69,7 +69,7 @@
     <script type="text/javascript">
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker
-          .register("/clevertap_sw.js") // Adjust to the correct path of your service worker file
+          .register("/clevertap_sw.js") // path to the service worker file
           .then(function (registration) {
             console.log("Service Worker Registered");
           })
@@ -78,9 +78,9 @@
           });
       }
     </script>
+
     <!-- Web Pop ups -->
     <!-- box-->
-    <div class="btn">CLOSE</div>
     <script>
       var btn = document.querySelector(".btn");
       var wrapper = window.parent.document.getElementById("wizParDiv0");
@@ -91,8 +91,7 @@
         }, 0);
       }
     </script>
-    <!--banner-->
-    <div class="btn">CLOSE</div>
+    <!-- banner -->
 
     <script>
       var btn = document.querySelector(".btn");
@@ -106,7 +105,6 @@
     </script>
 
     <!-- interstellar-->
-    <div class="btn">CLOSE</div>
     <script>
       var btn = document.querySelector(".btn");
       var overlay = window.parent.document.getElementById("intentOpacityDiv");
@@ -120,10 +118,11 @@
       }
     </script>
 
-    <title>React App</title>
+    <title>ClverTap Web Test</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <div id="ct-nativedisplay" class="nativedisplay"  style="width: 1250px;height: 250px;"></div> 
   </body>
 </html>
+
